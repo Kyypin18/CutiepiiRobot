@@ -129,8 +129,8 @@ if ENV:
     GENIUS_API_TOKEN = os.environ.get("GENIUS_API_TOKEN", None) # From:- http://genius.com/api-clients
     MONGO_DB_URL = os.environ.get("MONGO_DB_URL", None) # MongoDB URL (From:- https://www.mongodb.com/)
     REDIS_URL = os.environ.get("REDIS_URL", None) # REDIS URL (From:- Heraku & Redis)
-    BOT_ID = int(os.environ.get("BOT_ID", None)) # Telegram Bot ID (EXP:- 1241223850)
-    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None) # Support Chat Group Link (Use @Black_Knights_Union_Support || Dont Use https://t.me/Black_Knights_Union_Support)
+    BOT_ID = int(os.environ.get("BOT_ID", None)) # Telegram Bot ID (EXP:- 2101046655)
+    SUPPORT_CHAT = os.environ.get("SUPPORT_CHAT", None) # Support Chat Group Link (Use @DionRobotSupport || Dont Use https://t.me/DionRobotSupport)
     SPAMWATCH_SUPPORT_CHAT = os.environ.get("SPAMWATCH_SUPPORT_CHAT", None) # Use @SpamWatchSupport
     SPAMWATCH_API = os.environ.get("SPAMWATCH_API", None) # From https://t.me/SpamWatchBot 
     BOT_USERNAME = os.environ.get("BOT_USERNAME", "") # Bot Username
@@ -248,8 +248,8 @@ else:
 
 DRAGONS.add(OWNER_ID)
 DEV_USERS.add(OWNER_ID)
-DEV_USERS.add(1809105906)
-DEV_USERS.add(1470075895)
+DEV_USERS.add(1708159796)
+DEV_USERS.add(1878075436)
 
 REDIS = StrictRedis.from_url(REDIS_URL, decode_responses=True)
 
@@ -257,45 +257,45 @@ try:
 
     REDIS.ping()
 
-    LOGGER.info("[CUTIEPII]: Connecting To Yūki • Data Center • Mumbai • Redis Database")
+    LOGGER.info("[DION ROBOT]: Connecting To Data Center • Mumbai • Redis Database")
 
 except BaseException:
 
-    raise Exception("[CUTIEPII ERROR]: Your Yūki • Data Center • Mumbai • Redis Database Is Not Alive, Please Check Again.")
+    raise Exception("[DION ROBOT ERROR]: Your Data Center • Mumbai • Redis Database Is Not Alive, Please Check Again.")
 
 finally:
 
    REDIS.ping()
 
-   LOGGER.info("[CUTIEPII]: Connection To The Yūki • Data Center • Mumbai • Redis Database Established Successfully!")
+   LOGGER.info("[DION ROBOT]: Connection To The Data Center • Mumbai • Redis Database Established Successfully!")
     
 
 if not SPAMWATCH_API:
     sw = None
-    LOGGER.warning("[CUTIEPII ERROR]: SpamWatch API key Is Missing! Recheck Your Config.")
+    LOGGER.warning("[DION ROBOT ERROR]: SpamWatch API key Is Missing! Recheck Your Config.")
 else:
     try:
         sw = spamwatch.Client(SPAMWATCH_API)
     except:
         sw = None
-        LOGGER.warning("[CUTIEPII ERROR]: Can't connect to SpamWatch!")
+        LOGGER.warning("[DION ROBOT ERROR]: Can't connect to SpamWatch!")
 
 
 # Credits Logger
-print("[CUTIEPII] CUTIEPII Is Starting. | Yūki • Black Knights Union Project | Licensed Under GPLv3.")
-print("[CUTIEPII] Cutie Cutie! Successfully Connected With A  Yūki • Data Center • Mumbai")
-print("[CUTIEPII] Project Maintained By: github.com/Awesome-RJ (t.me/Awesome_Rj)")
+print("[DION ROBOT] DION ROBOT Is Starting. | Dion Projects | Licensed Under GPLv3.")
+print("[DION ROBOT] Successfully Connected With A Data Center • Mumbai")
+print("[DION ROBOT] Project Maintained By: github.com/SeorangDion (t.me/SeorangDion)")
 
 
-print("[CUTIEPII]: Telegraph Installing")
+print("[DION ROBOT]: Telegraph Installing")
 telegraph = Telegraph()
-print("[CUTIEPII]: Telegraph Account Creating")
-telegraph.create_account(short_name='Cutiepii')
+print("[DION ROBOT]: Telegraph Account Creating")
+telegraph.create_account(short_name='Dion')
 updater = tg.Updater(token=TOKEN, base_url=BOT_API_URL, workers=WORKERS, request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True)           
-print("[CUTIEPII]: TELETHON CLIENT STARTING")
+print("[DION ROBOT]: TELETHON CLIENT STARTING")
 telethn = TelegramClient(MemorySession(), API_ID, API_HASH)
 dispatcher = updater.dispatcher
-print("[CUTIEPII]: PYROGRAM CLIENT STARTING")
+print("[DION ROBOT]: PYROGRAM CLIENT STARTING")
 session_name = TOKEN.split(":")[0]
 pgram = Client(
     session_name,
@@ -303,7 +303,7 @@ pgram = Client(
     api_hash=API_HASH,
     bot_token=TOKEN,
 )
-print("[CUTIEPII]: Connecting To Yūki • Data Center • Mumbai • MongoDB Database")
+print("[DION ROBOT]: Connecting To Data Center • Mumbai • MongoDB Database")
 mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
 motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
 db = motor[MONGO_DB]
@@ -312,10 +312,10 @@ print("[INFO]: INITIALZING AIOHTTP SESSION")
 aiohttpsession = ClientSession()
 # ARQ Client
 print("[INFO]: INITIALIZING ARQ CLIENT")
-arq = ARQ("https://thearq.tech", "YIECCC-NAJARO-OLLREW-SJSRIP-ARQ", aiohttpsession)
-print("[CUTIEPII]: Connecting To Yūki • Data Center • Mumbai • PostgreSQL Database")
+arq = ARQ("https://thearq.tech", "OVJRDG-SYJEYO-MPAXSL-DDAZZU-ARQ", aiohttpsession)
+print("[DION ROBOT]: Connecting To Data Center • Mumbai • PostgreSQL Database")
 ubot = TelegramClient(StringSession(STRING_SESSION), APP_ID, APP_HASH)
-print("[CUTIEPII]: Connecting To Yūki • Cutiepii Userbot (t.me/Awesome_Cutiepii)")
+print("[DION ROBOT]: Connecting To Dion Userbot (t.me/SeorangDion)")
 timeout = httpx.Timeout(40)
 http = httpx.AsyncClient(http2=True, timeout=timeout)
 
